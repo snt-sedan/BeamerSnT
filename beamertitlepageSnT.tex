@@ -1,0 +1,31 @@
+\setbeamertemplate{footline}{}
+\setbeamertemplate{headline}{}
+\begin{frame}[t] % Top Alignment is important.
+                 % Theme for title page depends on it.
+                
+                
+% Draw background:
+\begin{tikzpicture}[remember picture,overlay]
+\path [fill=sntred]    (               current page.south west) rectangle
+                       ([xshift=116pt,yshift=11pt] current page.south west);
+\path [fill=sntpurple] ([xshift=116pt] current page.south west) rectangle
+                       ([xshift=232pt,yshift=11pt] current page.south west);
+\path [fill=sntblue]   ([xshift=232pt] current page.south west) rectangle
+                       ([xshift=348pt,yshift=11pt] current page.south west);
+\path [fill=unilublue] ([yshift= 11pt] current page.south west) --
+                       ([xshift=348pt,yshift= 11pt] current page.south west)
+                       [rounded corners=5pt] --
+                       ([xshift=348pt,yshift=222pt] current page.south west)
+                       [sharp corners] --
+                       ([yshift=222pt] current page.south west);
+\node [fill=white,rounded corners=2pt,inner xsep=6pt,inner ysep=3pt]
+      at ([xshift=335pt,yshift=48pt] current page.south west)
+      {\pgfuseimage{logo-uni-lu}};
+\end{tikzpicture}
+% Show Meta Information:
+\titlepage
+\end{frame}
+% Title page does not count as frame:
+\setcounter{framenumber}{0}
+\setbeamertemplate{footline}[SnT]
+\setbeamertemplate{headline}[SnT]

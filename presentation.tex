@@ -1,0 +1,65 @@
+\documentclass{beamer}
+% Personally, I always use these, but you might choose differently:
+\usepackage[utf8]{inputenc} % UTF-8 input, e.g.: ©®™£ éêèáâàçëäöüßåæœþð
+\usepackage[T1]{fontenc}    % Better font encoding, but may result in poor
+                            % output quality if fonts are not available
+\usepackage[british]{babel} % Hyphenation for British English
+\usepackage{textcomp}       % Allows some more UTF-8 characters to be
+                            % directly used, e.g.: µ¼½¾ €¥¢
+% Maybe you want some other font here:
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsfonts,amssymb,amsmath}
+\usepackage[mathscr]{euscript}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{color}
+% This is NEEDED for the title page:
+\usepackage{tikz}
+% And this is NEEDED to set the rest of the style:
+\usetheme{SnT}
+% Two logos are NEEDED:
+\pgfdeclareimage[width=12mm]{logo-snt}{logo-snt}
+\pgfdeclareimage[width=9mm]{logo-uni-lu}{logo-uni-lu}
+\logo{\pgfuseimage{logo-snt}}
+
+\usetikzlibrary{fit}
+\tikzset{%
+  highlight/.style={rectangle,rounded corners,fill=red!15,draw,
+    fill opacity=0.5,thick,inner sep=0pt}
+}
+\newcommand{\tikzmark}[2]{\tikz[overlay,remember picture,
+  baseline=(#1.base)] \node (#1) {#2};}
+%
+\newcommand{\Highlight}[1][submatrix]{%
+    \tikz[overlay,remember picture]{
+    \node[highlight,fit=(left.north west) (right.south east)] (#1) {};}
+}
+
+% Meta information of the presentation. REPLACE appropriately:
+\author[Author Short]{
+\newline Author One, \texttt{author.one@uni.lu}
+\newline Author Two, \texttt{author.two@uni.lu}}
+\institute[SnT]{SnT - Interdisciplinary Centre for Security, Reliability and Trust}
+\title[Title Short]{SnT Beamer Template}
+\subtitle{Rocks} 
+
+\date[05-11-2017]{Conference of all Conferences (CoaC) - 05.11.2017}
+
+%Outine Style
+\setbeamercovered{transparent}
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+% This is NEEDED to typeset the title page:
+\include{beamertitlepageSnT}
+
+\end{document}
