@@ -1,0 +1,2 @@
+# BeamerSnT
+SnT Beamer Template
